@@ -1,0 +1,9 @@
+<nav>
+  <a routerLink="/login" routerLinkActive="active">Login</a> |
+  <a routerLink="/signup" routerLinkActive="active">Signup</a> |
+  <a routerLink="/home" routerLinkActive="active">Home</a> |
+  <button (click)="logout()">Logout</button> <!-- ✅ Logout Button -->
+</nav>
+
+<!-- Enable routing -->
+<router-outlet></router-outlet>

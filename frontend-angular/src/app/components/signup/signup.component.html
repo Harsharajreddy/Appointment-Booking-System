@@ -1,0 +1,22 @@
+<h2>Signup</h2>
+<form (ngSubmit)="onSignup()">
+  <label>Full Name:</label>
+  <input type="text" [(ngModel)]="signupData.fullName" name="fullName" required />
+
+  <label>Email:</label>
+  <input type="email" [(ngModel)]="signupData.email" name="email" required />
+
+  <label>Password:</label>
+  <input type="password" [(ngModel)]="signupData.password" name="password" required />
+
+  <label>Phone:</label>
+  <input type="text" [(ngModel)]="signupData.phone" name="phone" required />
+
+  <label>Address:</label>
+  <input type="text" [(ngModel)]="signupData.address" name="address" required />
+
+  <button type="submit">Signup</button>
+</form>
+
+<p *ngIf="successMessage" style="color: green;">{{ successMessage }}</p>
+<p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
