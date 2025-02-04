@@ -30,7 +30,8 @@ public class AppointmentService {
     public List<Appointment> getAvailableAppointments() {
         LocalDate today = LocalDate.now();
         LocalDate nextWeek = today.plusDays(7);
-
+        System.out.println("Today's Date: " + today);  // ✅ Debug log
+        System.out.println("Fetching appointments from " + today + " to " + nextWeek);
         // Fetch existing available appointments from DB
         List<Appointment> availableAppointments = appointmentRepository.findAvailableAppointments(today, nextWeek, Appointment.Status.AVAILABLE);
         System.out.println("Total Available Appointments: " + availableAppointments.size());
@@ -91,9 +92,15 @@ public class AppointmentService {
         }
         return false;
     }
+    public List<Booking> getAppointmentsByUserId(Long userId) {
+        return bookingRepository.findByUserId(userId);
+    }
+    // In AppointmentService.java
     public Optional<Appointment> getAppointmentById(Long id) {
         return appointmentRepository.findById(id);
     }
+    
+
     @Transactional // ✅ Ensures atomic transaction
     public boolean deleteBooking(Long bookingId) {
         Optional<Booking> bookingOpt = bookingRepository.findById(bookingId);

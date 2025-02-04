@@ -1,0 +1,58 @@
+/* Container for the calendar */
+.calendar-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  /* Heading */
+  .calendar-container h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Wrapper for FullCalendar to ensure proper spacing */
+  .calendar-wrapper {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+  }
+  
+  /* FullCalendar Styles */
+  ::ng-deep .fc {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* FullCalendar header styles */
+  ::ng-deep .fc-toolbar {
+    background: #4a90e2;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  /* FullCalendar event styles */
+  ::ng-deep .fc-event {
+    background: #0fdb24 !important;
+    color: white !important;
+    border: none !important;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Make calendar responsive */
+  @media (max-width: 768px) {
+    .calendar-container {
+      width: 95%;
+      margin: 20px auto;
+    }
+  }
+  

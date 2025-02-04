@@ -12,11 +12,14 @@ import { FullCalendarModule } from '@fullcalendar/angular';
   imports: [RouterModule, CommonModule, FormsModule, FullCalendarModule] 
 })
 export class AppComponent {
-  constructor(private router: Router) {} // ✅ Inject Router for navigation
+  isLoggedIn: boolean = !!localStorage.getItem('token'); // ✅ Check login status
+
+  constructor(private router: Router) {}
 
   logout() {
     console.log("User logged out"); // ✅ Debugging log
     localStorage.removeItem('token'); // ✅ Clear auth token if using JWT
+    this.isLoggedIn = false; // ✅ Update login status
     this.router.navigate(['/login']); // ✅ Redirect to login page
   }
 }

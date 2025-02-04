@@ -1,9 +1,14 @@
-<nav>
-  <a routerLink="/login" routerLinkActive="active">Login</a> |
-  <a routerLink="/signup" routerLinkActive="active">Signup</a> |
-  <a routerLink="/home" routerLinkActive="active">Home</a> |
-  <button (click)="logout()">Logout</button> <!-- ✅ Logout Button -->
+<nav class="navbar">
+  <!-- Left side: Navigation Links -->
+  <div class="nav-links">
+    <a *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="active">Login</a>
+    <a *ngIf="!isLoggedIn" routerLink="/signup" routerLinkActive="active">Signup</a>
+    <a routerLink="/home" routerLinkActive="active">Home</a>
+    <a routerLink="/my-appointments" routerLinkActive="active">My Appointments</a>
+  </div>
+
+  <!-- Right side: Logout Button -->
+  <button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
 </nav>
 
-<!-- Enable routing -->
 <router-outlet></router-outlet>

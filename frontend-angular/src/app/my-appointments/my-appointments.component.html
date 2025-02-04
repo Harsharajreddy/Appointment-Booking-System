@@ -1,0 +1,26 @@
+<div class="appointments-container">
+  <h2>My Appointments</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointment of appointments">
+        <td>{{ appointment.appointment?.date }}</td>
+        <td>{{ appointment.appointment?.time }}</td>
+        <td>
+          <button (click)="deleteAppointment(appointment.id)">Cancel</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="appointments.length === 0" class="no-appointments">
+    No appointments found.
+  </p>
+</div>

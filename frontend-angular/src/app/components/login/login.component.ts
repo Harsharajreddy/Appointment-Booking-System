@@ -30,13 +30,16 @@ export class LoginComponent {
         localStorage.setItem('userName', response.userName);
         localStorage.setItem('userEmail', response.userEmail);
         localStorage.setItem('userPhone', response.userPhone);
-        this.router.navigate(['/home']);
+  
+        // ✅ Navigate first, then refresh the page to update navbar
+        this.router.navigate(['/home']).then(() => {
+          window.location.reload(); // ✅ Refresh to immediately update navbar
+        });
       },
       (error: any) => {
         console.error('Login failed:', error);
         this.errorMessage = 'Invalid email or password!';
       }
     );
-  }
-  
+  }  
 }

@@ -2,13 +2,17 @@ package com.appointment.bookingsystem.controller;
 
 import com.appointment.bookingsystem.dto.BookingRequest;
 import com.appointment.bookingsystem.model.Appointment;
+import com.appointment.bookingsystem.model.Booking;
 import com.appointment.bookingsystem.service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -46,6 +50,14 @@ public class AppointmentController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Appointment already booked or not found");
         }
     }
+
+    // ✅ Get all appointments booked by a specific user
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Booking>> getUserAppointments(@PathVariable Long userId) {
+        List<Booking> appointments = appointmentService.getAppointmentsByUserId(userId);
+        return ResponseEntity.ok(appointments);
+    }
+
     @DeleteMapping("/bookings/{bookingId}")
     public ResponseEntity<String> deleteBooking(@PathVariable Long bookingId) {
         boolean deleted = appointmentService.deleteBooking(bookingId);
