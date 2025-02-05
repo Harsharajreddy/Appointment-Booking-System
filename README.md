@@ -1,4 +1,5 @@
 # **📅 Appointment Booking System**  
+![appo](https://github.com/user-attachments/assets/3041e832-4a45-40df-a1b2-7ddb934b4a51)
 
 A **full-stack** appointment booking system built with **Spring Boot (Backend) and Angular (Frontend)**. Users can **view available slots, book appointments, view their bookings, and cancel appointments**.
 
